@@ -1,6 +1,6 @@
 # Gitlab CI/CD Pipeline with Terraform
 
-### This project utilizes Gitlab CI/CD pipeline and Terraform modules to deploy infrastructure in AWS. The terraform state will be stored in AWS S3. The infrastructure that will be built is a VPC with 2 public subnets and an Autoscaling group of EC2 instances.:
+This project utilizes Gitlab CI/CD pipeline and Terraform modules to deploy infrastructure in AWS. The terraform state will be stored in AWS S3. The infrastructure that will be built is a VPC with 2 public subnets and an Autoscaling group of EC2 instances.:
 
 ### Prerequisites
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed and configuration
@@ -14,7 +14,7 @@ Create the S3 bucket which will be out Terraform backend and store the Terraform
 - On your terminal (I will use VSCode) use the command: `aws s3api create-bucket --bucket <bucket-name>` or `aws s3 mb s3://bucket-name --region us-east-1 --endpoint-url https://s3.us-east-1.amazonaws.com`
   
 ### Code
-We edit the core that we will be using to deploy the infrastructure as code. You will need to fork my repository from Github * [Website project (fork this)](https://github.com/mnforba/terraform_gitlab.git)
+We edit the core that we will be using to deploy the infrastructure as code. You will need to fork my repository from Github * [(here)](https://github.com/mnforba/terraform_gitlab.git)
 - The file system contains all Terraform modules and what you need to built the project in Gitlab.
 - Update the `backend.tf` file to include the S3 bucket name you created.
 - The pipeline template in Gitlab provide the CI/CD workflow for the project. The stages of Terraform are validate code, plan, apply and finally destroy. The `before-script` is where Terraform will initialize the backend, which is the S3 bucket. The `state.config` file to configure the backend. 
