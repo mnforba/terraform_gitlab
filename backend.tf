@@ -4,6 +4,6 @@ terraform{
         region = "us-east-1"
         profile = "default"
         key = "terraformstatefile"
-        bucket = "terragitlab"
+        bucket = "terragitlab"  # This is the name of the bucket you created
     }
 }
